@@ -1,7 +1,7 @@
 <template>
   <div>
     Hello World
-    <router-link to="/data">Goto Data</router-link>
+    <router-link to="/data">Goto Data?</router-link>
     <button @click="pop">Show Message</button>
   </div>
 </template>
