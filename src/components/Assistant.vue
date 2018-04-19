@@ -31,7 +31,9 @@
       <td>{{ props.item.mobile }}</td>
       <td>{{ props.item.age }}</td>
       <td>{{ props.item.gender }}</td>
-      <td>{{ props.item.problem }}</td>
+      <td>{{ props.item.summary }}</td>
+      <td>{{ props.item.status }}</td>
+      <td>{{ props.item.timestamp | getHours }}</td>
     </template>
     <v-alert slot="no-results" :value="true" color="error" icon="warning">
         Your search for "{{ search }}" found no results.
@@ -43,6 +45,8 @@
 </template>
 
 <script>
+import { briefsRef } from '@/firebase';
+
 export default {
     data () {
       return {
@@ -54,36 +58,27 @@ export default {
             value: 'name'
           },
           { text: 'Mobile No.',sortable: false, value: 'mobile' },
-          { text: 'Gender', sortable: false,value: 'gender' },
           { text: 'Age', sortable: false,value: 'age' },
+          { text: 'Gender', sortable: false,value: 'gender' },
+          
           { text: 'Problem',sortable: false, value: 'problem' },
-        ],
-        items: [
-          {
-            value: false,
-            name: 'Anuj Sharma',
-            mobile: '9810440729',
-            gender: 'male',
-            age: '21',
-            problem: 'something'
-          },
-          {
-            value: false,
-            name: 'Gaurav',
-            mobile: '9811440729',
-            gender: 'male',
-            age: '20',
-            problem: 'something else'
-          },
-          {
-            value: false,
-            name: 'Lakshya Tyagi',
-            mobile: '9810442229',
-            gender: 'male',
-            age: '21',
-            problem: 'cancer'
-          }
+          { text: 'Status',sortable: false, value: 'status' },
+          { text: 'Time Remaining',sortable: false, value: 'timeRem' },
         ]
+      }
+    },
+    firebase: {
+      items: briefsRef
+    },
+    methods: {
+      
+    },
+    filters: {
+      getHours(timestamp){
+        let now = Date.now()
+        let diff = now - timestamp
+        diff = Math.ceil(diff/(1000*60*60))   
+        return diff >24 ?"Report delayed":(24-diff)+' hours'
       }
     }
   }

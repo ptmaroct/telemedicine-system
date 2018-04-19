@@ -6,10 +6,13 @@ import Home from '@/components/Home'
 import Diagnosis from '@/components/Diagnosis'
 import Result from '@/components/Result'
 import Doctor from '@/components/Doctor'
-import Chat from '@/components/Chat'
+// import Chat from '@/components/Chat'
 
+const Chat = () => import('@/components/Chat') 
 import Assistant from '@/components/Assistant'
-import AssistantChat from '@/components/Assistant/Chat'
+const AssistantChat = () => import('@/components/Assistant/Chat') 
+
+// import AssistantChat from '@/components/Assistant/Chat'
 
 
 Vue.use(Router)

@@ -4,8 +4,11 @@ import Vue from 'vue'
 import router from './router'
 
 import Vuetify from 'vuetify'
+import VueFire from 'vuefire'
 import VueI18n from 'vue-i18n'
 import {messages} from './i18n'
+
+import './firebase';
 
 import App from './App'
 
@@ -14,6 +17,7 @@ import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 
 Vue.use(Vuetify)
 Vue.use(VueI18n)
+Vue.use(VueFire)
 
 const i18n = new VueI18n({
   locale: 'en', // set locale

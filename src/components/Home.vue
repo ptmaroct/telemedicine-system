@@ -20,7 +20,7 @@
        <!-- <v-btn small @click="$router.push('Doctor')">Go</v-btn> -->
        <v-card color="blue-grey darken-2" class="white--text">
               <v-card-title primary-title>
-                <div class="headline">{{$t("home.diagnosis")}}</div>
+                <div class="headline">{{$t("home.diagnosis")}}</div> <br>
                 <div>{{$t("home.diagnosis_caption")}}</div>
               </v-card-title>
               <v-card-actions>
@@ -34,23 +34,38 @@
             </v-card>
 
 <br>
-             <v-card color="red darken-2" class="white--text" raised>
+             <v-card color="green darken-2" class="white--text" raised>
               <v-card-title primary-title>
-                <div class="headline">{{$t("home.emergency")}}</div>
-                <div>{{$t("home.emergency_caption")}}</div>
+                <div class="headline">Inquire for followup</div> <br>
+                <div>Talk to the assistant again to get your result.</div>
               </v-card-title>
               <v-card-actions>
                 <v-spacer></v-spacer>
-          <v-btn flat dark>
+          <v-btn flat dark @click.native="dialog3 = true">
+             <v-icon>phone</v-icon>
           
-            {{$t("home.emergency_button")}} 
-             <v-icon>warning</v-icon>
+           Talk to assistant
              
           </v-btn>
               </v-card-actions>
             </v-card>
-            <v-btn>Followup</v-btn>
 
+             <v-dialog v-model="dialog3" max-width="500px">
+        <v-card>
+          
+          <v-card-text>
+             <v-text-field
+          name="input-1"
+          label="Enter Assistant Number"
+          id="testing"
+        ></v-text-field>
+          </v-card-text>
+          <v-card-actions >
+            <v-btn color="primary" flat @click.stop="dialog3=false">Close</v-btn>
+            <v-btn color="primary" flat @click.stop="$router.push('Chat')">OK</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
     </v-container>
   </v-content>
 
@@ -69,7 +84,8 @@ export default {
           { text: 'Telegu ( తెలుగు )', value: 'te'},
           { text: 'Marathi (मराठी)', value: 'ma'}
         ],
-        language: 'en'
+        language: 'en',
+        dialog3: false
     };
   },
   methods: {},

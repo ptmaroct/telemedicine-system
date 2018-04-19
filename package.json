@@ -10,10 +10,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "firebase": "^4.12.1",
+    "moment": "^2.22.0",
     "simplewebrtc": "^3.0.1",
     "vue": "^2.5.2",
     "vue-i18n": "^7.6.0",
     "vue-router": "^3.0.1",
+    "vuefire": "^1.4.5",
     "vuetify": "^1.0.10"
   },
   "devDependencies": {

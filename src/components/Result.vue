@@ -9,7 +9,7 @@
   <v-content>
       <v-container row>
           <span class="headline">How would you like to talk?</span>
-          <v-card color="cyan darken-2" class="white--text" @click.native="mode='voice'; gotoChat()">
+          <v-card color="cyan darken-2" class="white--text" @click.native="$router.go('Chat')">
               <v-card-title primary-title>
                 <div class="headline text-xs-center">
                     <v-icon large>settings_voice</v-icon>
